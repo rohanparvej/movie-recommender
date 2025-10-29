@@ -6,9 +6,6 @@ from sklearn.neighbors import NearestNeighbors
 with open("movies.pkl", "rb") as f:
     movies_list = pickle.load(f)
 
-# with open("tfidf_vectorizer.pkl", "rb") as f:
-#     tfidf = pickle.load(f)
-
 with open("similarity.pkl", "rb") as f:
     tfidf_matrix = pickle.load(f)
 
@@ -19,7 +16,6 @@ movie_titles=movies_list['title'].values
 new_movies=movies_list
 
 def recommend(title, k=3):
-  # title=title.title()
   if title not in new_movies['title'].values:
     print(f"{title} not present in database.")
   idx=int(new_movies[new_movies['title']==title].index[0])
